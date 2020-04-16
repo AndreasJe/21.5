@@ -1,0 +1,98 @@
+#splash {
+  height: 60vh;
+  left: 0;
+  Position: absolute;
+  width: 100vw;
+  z-index: -99;
+}
+
+.fa-caret-down {
+  color: black;
+  top-margin: 20px;
+}
+
+body,
+html {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+
+.top_navbar {
+  height: 50px;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #EAEDEA;
+}
+
+.btm_navbar {
+  height: 50px;
+  width: 100vw;
+  overflow: hidden;
+  background-color: white;
+}
+
+.btm_navbar a {
+  float: right;
+  font-size: 13px;
+  color: black;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  background-color: white;
+  font-family: inherit;
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 25px;
+}
+
+.btm_navbar a:hover,
+.dropdown:hover .dropbtn {
+  background-color: #f9f9f9;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #EAEDEA;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Økonomi</title>
+  <link rel="stylesheet" href="css/oekonmi.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    body,
+    html {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .navbar a {
+      float: left;
+      font-size: 13px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: red;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Nav med udgangspunkt i denne fremgangsmåde: https://www.w3schools.com/howto/howto_css_dropdown.asp  -->
+
+
+  <div class="navbar">
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="destinationer.html">Destinationer</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Mallorca</a>
+        <a href="#">Marbella</a>
+        <a href="#">Toscana</a>
+        <a href="#">Sydfrankrig</a>
+        <a href="#">Chamonix</a>
+        <a href="#">New York</a>
+        <a href="#">Barcelona</a>
+        <a href="#">Paris</a>
+        <a href="#">Rom</a>
+      </div>
+    </div>
+
+
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="vores_boliger.html">Vores boliger</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Feriebolig på Mallorca</a>
+        <a href="#">Feriebolig i Sydspanien</a>
+        <a href="#">Feriebolig i Toscana</a>
+        <a href="#">Feriebolig i Sydfrankrig</a>
+        <a href="#">Feriebolig i Chamonix</a>
+        <a href="#">Feriebolig i Barcelona</a>
+        <a href="#">Feriebolig i Paris</a>
+        <a href="#">Feriebolig i Rom</a>
+      </div>
+    </div>
+
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="skrot_til_slot.html">Fra Skrot til Slot</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Udvælgelse</a>
+        <a href="#">Istandsættelse</a>
+        <a href="#">Indretning</a>
+        <a href="#">Klargøring</a>
+        <a href="#">Vi skaber hjem</a>
+      </div>
+    </div>
+
+
+
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="hvorfor.html">Hvorfor 21-5?</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Hvordan sælger vi vores andel igen?</a>
+        <a href="#">Derfor købe en andel?</a>
+        <a href="#">Hvordan kommer vi med?</a>
+        <a href="#">I binder jer først endeligt når i har mødt de andre familier</a>
+        <a href="#">Fordi det giver mening</a>
+        <a href="#">Bookingsystemet fordeling af ugerne (fed knap)</a>
+        <a href="#">Skab nye familietraditioner</a>
+      </div>
+    </div>
+
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="foreninger.html">Foreninger</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Se alle 21-5 stiftede foreninger</a>
+        <a href="#">Ejerforeninger</a>
+        <a href="#">Gensalg</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="oekonomi.html">Økonomi</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Skat</a>
+        <a href="#">Finansiering</a>
+        <a href="#">Investering</a>
+        <a href="#">Intet besvær og reelt ejerskab</a>
+        <a href="#">Administration hvad dækker fællesudgifterne</a>
+        <a href="#">Meget mere for pengene</a>
+        <a href="#">Hvor tjener 21-5 sine penge?</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="om_os.html">Om Os</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">21-5 Teamet</a>
+        <a href="#">Hvem er 21-5 for?</a>
+        <a href="#">Det siger vores 21-5 familier</a>
+        <a href="#">Sådan benytter vi vores 21-5 boliger</a>
+        <a href="#">Lidt om 21-5 historien</a>
+        <a href="#">10 års fødselsdag</a>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn">
+        <a href="kontakt.html">Kontakt</a>
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Job i 21-5</a>
+        <a href="#">Kaffemøde</a>
+        <a href="#">Ofte stillede spørgsmål</a>
+        <a href="#">Orienteringsmøde</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JAVA -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", start);
+
+    //Sæt PAGE-ID ind i url'en.
+    const url = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/ID"
+
+
+
+    async function start() {
+      const resspons = await fetch(url);
+      const json = await resspons.json();
+      vis(json);
+    }
+
+    function vis(data) {
+      console.log("side loades")
+      document.querySelector(".overskrift").textContent = data.title.rendered;
+      document.querySelector("#splash").src = data.better_featured_image.source_url;
+
+    }
+  </script>
+
+
+  <!-- HTML SLUT -->
+
+</body>
+
+</html>
