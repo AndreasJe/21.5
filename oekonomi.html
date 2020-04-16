@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Økonomi</title>
-  <link rel="stylesheet" href="css/oekonmi.css">
+  <link rel="stylesheet" href="css/oekonomi.css">
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -181,6 +181,7 @@
   <main id="tekst_container">
 
     <h1 id="overskrift"></h1>
+    <p id="brødtekst"></p>
   </main>
 
 
@@ -191,30 +192,30 @@
 
 
     // LAV EN VARIABLE TIL AT BEGYNDE MED
-    let forside
+    let oekonomi
     let logo
 
     // SKRIV JSON URL IND HER OG FORBIND MED VARIABLE
-    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/188";
+    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/16";
     let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
 
     // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
     async function start() {
       let response1 = await fetch(url1);
       let response2 = await fetch(url2);
-      forside = await response1.json();
+      oekonomi = await response1.json();
       logo = await response2.json();
-      visForside();
+      visoekonomi();
       visLogo();
     }
 
     // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
     // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
-    function visForside() {
+    function visoekonomi() {
       console.log("Page data loades")
-      document.querySelector("#overskrift").textContent = forside.title.rendered;
-      document.querySelector("#splash").src = forside.better_featured_image.source_url;
+      document.querySelector("#overskrift").textContent = oekonomi.title.rendered;
+      document.querySelector("#brødtekst").innerHTML = oekonomi.content.rendered;
 
     }
 

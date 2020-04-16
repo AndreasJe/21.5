@@ -81,7 +81,7 @@
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="#">Udvælgelse</a>
+          <a href="skrot/udvælgelse.html">Udvælgelse</a>
           <a href="#">Istandsættelse</a>
           <a href="#">Indretning</a>
           <a href="#">Klargøring</a>
@@ -175,13 +175,10 @@
 
   </div>
 
-  <div class="content_container">
-    <h3 id="underoverskrift"></h3>
-
-  </div>
   <main id="tekst_container">
 
     <h1 id="overskrift"></h1>
+    <p id="brødtekst"></p>
   </main>
 
 
@@ -195,7 +192,9 @@
     let forside
     let logo
 
-    // SKRIV JSON URL IND HER OG FORBIND MED VARIABLE
+    // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
+    //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages?per_page=100
+    // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
     let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/188";
     let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
 
@@ -214,7 +213,7 @@
 
     function visForside() {
       console.log("Page data loades")
-      document.querySelector("#overskrift").textContent = forside.title.rendered;
+      document.querySelector("#brødtekst").innerHTML = forside.content.rendered;
       document.querySelector("#splash").src = forside.better_featured_image.source_url;
 
     }
