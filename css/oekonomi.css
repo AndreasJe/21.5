@@ -1,3 +1,15 @@
+#splash {
+  height: 60vh;
+  left: 0;
+  Position: absolute;
+  width: 100vw;
+  z-index: -99;
+}
+
+.fa-caret-down {
+  color: black;
+}
+
 body,
 html {
   font-family: 'Raleway', sans-serif;
@@ -5,22 +17,38 @@ html {
   padding: 0;
 }
 
-.navbar {
-  overflow: hidden;
-  background-color: #333;
+nav {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
 }
 
-.navbar a {
-  float: left;
+.top_navbar {
+  height: 50px;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #EAEDEA;
+}
+
+.btm_navbar {
+  height: 50px;
+  width: 100vw;
+  overflow: hidden;
+  background-color: white;
+}
+
+.btm_navbar a {
+  float: right;
   font-size: 13px;
-  color: white;
+  color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding-left: 5px;
+  padding-right: 20px;
   text-decoration: none;
 }
 
 .dropdown {
-  float: left;
+  float: right;
   overflow: hidden;
 }
 
@@ -29,21 +57,23 @@ html {
   border: none;
   outline: none;
   color: white;
-  padding: 14px 16px;
-  background-color: inherit;
+  background-color: white;
   font-family: inherit;
   margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 25px;
 }
 
-.navbar a:hover,
+.btm_navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #f9f9f9;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #EAEDEA;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
