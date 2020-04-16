@@ -10,18 +10,18 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
+
 <body>
 
-
   <!-- NAV med udgangspunkt i denne fremgangsmåde: https://www.w3schools.com/howto/howto_css_dropdown.asp
-   Her er to navbars, som deler NAV'en op i to.-->
+ Her er to navbars, som deler NAV'en op i to.-->
   <nav>
+    <a class="forside-link" href="index.html">
+      <img id="logo" src="logo" alt="">
+    </a>
+
 
     <div class="top_navbar">
-
-      <a href="index.html">
-        <img id="logo" src="logo" alt="">
-      </a>
 
       <a href="index.html">
         <img id="language" src="language" alt="">
@@ -167,26 +167,60 @@
     </div>
   </nav>
 
+  <!-- CONTENT -->
+  <div class="splash_container">
+
+    <img id="splash" src="" alt="">
+
+  </div>
+
+  <div class="content_container">
+    <h3 id="underoverskrift"></h3>
+
+  </div>
+  <main id="tekst_container">
+
+    <h1 id="overskrift"></h1>
+  </main>
+
+
   <!-- JAVA -->
 
   <script>
-    document.addEventListener("DOMContentLoaded", start);
+    document.addEventListener("DOMContentLoaded", start)
 
 
-    const url = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/"
-    INDSÆT - ID - HER "";
+    // LAV EN VARIABLE TIL AT BEGYNDE MED
+    let forside
+    let logo
 
+    // SKRIV JSON URL IND HER OG FORBIND MED VARIABLE
+    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/188";
+    let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
 
+    // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
     async function start() {
-      const resspons = await fetch(url);
-      const json = await resspons.json();
-      vis(json);
+      let response1 = await fetch(url1);
+      let response2 = await fetch(url2);
+      forside = await response1.json();
+      logo = await response2.json();
+      visForside();
+      visLogo();
     }
 
-    function vis(data) {
-      console.log("side loades")
-      document.querySelector(".overskrift").textContent = data.title.rendered;
-      document.querySelector("#splash").src = data.better_featured_image.source_url;
+    // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
+    // HENT DATA VIA DEN TIDLIGERE VARIABEL
+
+    function visForside() {
+      console.log("Page data loades")
+      document.querySelector("#overskrift").textContent = forside.title.rendered;
+      document.querySelector("#splash").src = forside.better_featured_image.source_url;
+
+    }
+
+    function visLogo() {
+      console.log("billeder loades")
+      document.querySelector("#logo").src = logo.source_url;
 
     }
   </script>
