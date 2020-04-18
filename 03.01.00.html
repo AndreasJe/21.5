@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vores boliger</title>
-  <link rel="stylesheet" href="css/vores_boliger.css">
-</head>
-<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+  <title>Udvælgelse</title>
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+</head>
 
 <body>
 
@@ -20,6 +20,7 @@
     <a class="forside-link" href="index.html">
       <img id="logo" src="logo" alt="">
     </a>
+
 
     <div class="top_navbar">
 
@@ -176,7 +177,6 @@
   </div>
 
   <main id="tekst_container">
-
     <h1 id="overskrift"></h1>
     <p id="brødtekst"></p>
   </main>
@@ -189,31 +189,32 @@
 
 
     // LAV EN VARIABLE TIL AT BEGYNDE MED
-    let skrot
+    let udvælg
     let logo
 
-    // SKRIV JSON URL IND HER OG FORBIND MED VARIABLE
-    //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages?per_page=100
+    // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
+    //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
     // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
-    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/122";
+    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/144";
     let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
 
     // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
     async function start() {
       let response1 = await fetch(url1);
       let response2 = await fetch(url2);
-      skrot = await response1.json();
+      forside = await response1.json();
       logo = await response2.json();
-      visSkrot();
+      visUdvælg();
       visLogo();
     }
 
     // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
     // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
-    function visSkrot() {
+    function visUdvælg() {
       console.log("Page data loades")
-      document.querySelector("#brødtekst").innerHTML = skrot.content.rendered;
+      document.querySelector("#brødtekst").innerHTML = udvælg.content.rendered;
+      document.querySelector("#splash").src = udvælg.better_featured_image.source_url;
 
     }
 
