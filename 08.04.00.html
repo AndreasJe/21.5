@@ -201,18 +201,18 @@
         async function start() {
             let response1 = await fetch(url1);
             let response2 = await fetch(url2);
-            tiAar = await response1.json();
+            orientering = await response1.json();
             logo = await response2.json();
-            visorienteringr();
+            visorientering();
             visLogo();
         }
 
         // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
         // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
-        function visorienteringr() {
+        function visorientering() {
             console.log("Page data loades")
-            document.querySelector("#brødtekst").innerHTML = orienteringr.content.rendered;
+            document.querySelector("#brødtekst").innerHTML = orientering.content.rendered;
             document.querySelector("#splash").src = orientering.better_featured_image.source_url;
 
         }
