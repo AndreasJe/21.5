@@ -9,12 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-        .billede {
-            cursor: pointer;
-            width: 50%;
-        }
-    </style>
+
 </head>
 
 <body>
@@ -197,51 +192,32 @@
 
 
         // LAV EN VARIABLE TIL AT BEGYNDE MED
-        let destinationer
+        let rom
         let logo
 
         // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
         //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
         // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
-        let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/destinationer";
+        let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts/98";
         let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
 
         // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
         async function start() {
             let response1 = await fetch(url1);
             let response2 = await fetch(url2);
-            destinationer = await response1.json();
+            rom = await response1.json();
             logo = await response2.json();
-            visDestinationer();
+            visRom();
             visLogo();
         }
 
         // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
         // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
-        function visDestinationer() {
-            console.log("destinationer vises")
-
-            let liste = document.querySelector("#liste");
-            let template = document.querySelector("template");
-
-            destinationer.forEach(destination => {
-                let clone = template.cloneNode(true).content;
-
-                clone.querySelector(".overskrift").textContent = destination.overskrift;
-                clone.querySelector(".billede").src = destination.billede.guid;
-                clone.querySelector(".beskrivelse").textContent = destination.beskrivelse;
-
-                console.log(location.href, destination.id)
-
-                clone.querySelector("article").addEventListener("click", () => {
-
-                     location.href = `destination.html?id=${destination.id}`;
-
-                })
-
-                liste.appendChild(clone);
-            });
+        function visRom() {
+            console.log("Page data loades")
+            document.querySelector("#brødtekst").innerHTML = rom.content.rendered;
+            document.querySelector("#splash").src = rom.better_featured_image.source_url;
         }
 
         function visLogo() {
@@ -249,9 +225,12 @@
             document.querySelector("#logo").src = logo.source_url;
 
         }
+
     </script>
 
 
     <!-- HTML SLUT -->
 
-</body></html>
+</body>
+
+</html>
