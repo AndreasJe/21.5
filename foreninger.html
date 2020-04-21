@@ -211,9 +211,9 @@
         async function start() {
             let response1 = await fetch(url1);
             let response2 = await fetch(url2);
-            destinationer = await response1.json();
+            foreninger = await response1.json();
             logo = await response2.json();
-            visDestinationer();
+            visForeninger();
             visLogo();
         }
 
@@ -226,14 +226,14 @@
             let liste = document.querySelector("#liste");
             let template = document.querySelector("template");
 
-            destinationer.forEach(forening => {
+            foreninger.forEach(forening => {
                 let clone = template.cloneNode(true).content;
 
                 clone.querySelector(".overskrift").textContent = forening.overskrift;
                 clone.querySelector(".billede").src = forening.billede.guid;
-                clone.querySelector(".beskrivelse").textContent = destination.beskrivelse;
+                clone.querySelector(".beskrivelse").textContent = forening.beskrivelse;
 
-                console.log(location.href, destination.id)
+                console.log(location.href, forening.id)
 
                 clone.querySelector("article").addEventListener("click", () => {
 
