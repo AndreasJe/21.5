@@ -21,10 +21,13 @@
 
     <main id="content">
         <button id="go-back">Go back!</button>
+        <img class="billede">
         <h1 class="navn"></h1>
-        <h2 class="tekst"></h2>
+        <p class="tekst"></p>
+
         <p class="profession"></p>
         <p class="email"></p>
+
 
 
     </main>
@@ -48,7 +51,7 @@
             document.querySelector(".tekst").textContent = destination.tekst;
             document.querySelector(".profession").textContent = destination.profession;
             document.querySelector(".email").textContent = destination.email;
-            document.querySelector("#splash").src = destination.billede.guid;
+            document.querySelector(".billede").src = destination.billede.guid;
 
 
         }
@@ -59,5 +62,8 @@
                 history.back();
             });
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
