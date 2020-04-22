@@ -209,7 +209,7 @@
 
     // LAV EN VARIABLE TIL AT BEGYNDE MED
     let destinationer
-    let logo
+    let splash
 
     // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
     //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
@@ -222,9 +222,9 @@
       let response1 = await fetch(url1);
       let response2 = await fetch(url2);
       destinationer = await response1.json();
-      logo = await response2.json();
+      splash = await response2.json();
       visDestinationer();
-      visLogo();
+      visSplash();
     }
 
     // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
@@ -255,9 +255,9 @@
       });
     }
 
-    function visLogo() {
-      console.log("billeder loades")
-      document.querySelector("#splash").src = logo.guid.rendered;
+    function visSplash() {
+      console.log("splash loades")
+      document.querySelector("#splash").src = splash.guid.rendered;
 
     }
   </script>
