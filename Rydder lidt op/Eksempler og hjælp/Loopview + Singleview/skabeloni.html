@@ -4,45 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Destinationer</title>
-    <link rel="stylesheet" href="css/permanent.css">
+    <title>Rom</title>
+    <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!--
-    <style>
-        article {
-            width: 90%;
-            margin: 2vw;
-            position: relative;
-            flex-basis: 400px;
-        }
 
-        .billede {
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .overskrift {
-            color: white;
-            font-weight: 900;
-            position: absolute;
-            left: 15px;
-            font-size: 2.2rem;
-            bottom: 5px;
-            text-shadow: 3px 2px 0px rgba(0, 0, 0, 0.2);
-        }
-
-        #liste {
-            display: flex;
-            flex-direction: row;
-            width: 80vw;
-            flex-wrap: wrap;
-            height: auto;
-            margin: auto;
-        }
-    </style>
--->
 </head>
 
 <body>
@@ -189,78 +156,61 @@
     <!-- CONTENT -->
     <div class="splash_container">
 
-        <img id="splash" src="" alt="">
+        <img class="splash" src="" alt="">
+
 
     </div>
 
-    <main id="liste"></main>
+    <main id="content">
+        <button id="go-back">Go back!</button>
+        <h1 class="overskrift"></h1>
+        <h2 class="firstunderoverskrift"></h2>
+        <p class="firstbeskrivelse"></p>
 
-    <template>
-        <article>
-            <h1 class="overskrift"></h1>
-            <p class="beskrivelse"></p>
-            <img class="billede">
-        </article>
-    </template>
+
+        <h2 class="andenunderoverskrift"></h2>
+        <p class="andenbeskrivelse"></p>
+        <h2 class="tredjeunderoverskrift"></h2>
+        <p class="tredjebeskrivelse"></p>
+        <img class="billede">
+    </main>
 
     <!-- JAVA -->
 
     <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let destination;
         document.addEventListener("DOMContentLoaded", start)
 
-
-        // LAV EN VARIABLE TIL AT BEGYNDE MED
-        let destinationer
-        let logo
-
-        // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
-        //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
-        // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
-        let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/hvorfor_21-5";
-        let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
-
-        // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
         async function start() {
-            let response1 = await fetch(url1);
-            let response2 = await fetch(url2);
-            destinationer = await response1.json();
-            logo = await response2.json();
-            visDestinationer();
-            visLogo();
+            let jsonData = await fetch(`http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/destination/${id}`);
+            destination = await jsonData.json();
+            visDestination();
+            visTilbage();
         }
 
-        // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
-        // HENT DATA VIA DEN TIDLIGERE VARIABEL
+        function visDestination() {
+            //            console.log("destination vises")
 
-        function visDestinationer() {
-            console.log("destinationer vises")
+            clone.querySelector(".overskrift").textContent = destination.overskrift;
+            clone.querySelector(".firstunderoverskrift").textContent = destination.firstoverskrift;
+            clone.querySelector(".andenunderoverskrift").textContent = destination.andenoverskrift;
+            clone.querySelector(".tredjeoverskrift").textContent = destination.tredjeoverskrift;
 
-            let liste = document.querySelector("#liste");
-            let template = document.querySelector("template");
 
-            destinationer.forEach(destination => {
-                let clone = template.cloneNode(true).content;
+            clone.querySelector(".billede").src = destination.billede.guid;
+            clone.querySelector("#splash").src = destination.splash_billede.guid;
 
-                clone.querySelector(".overskrift").textContent = destination.overskrift;
-                clone.querySelector(".billede").src = destination.billede.guid;
-                clone.querySelector(".beskrivelse").textContent = destination.beskrivelse;
+            clone.querySelector(".firstbeskrivelse").textContent = destination.firstbeskrivelse;
+            clone.querySelector(".andenbeskrivelse").textContent = destination.andenbeskrivelse;
+            clone.querySelector(".tredjebeskrivelse").textContent = destination.tredjebeskrivelse;
+        }
 
-                console.log(location.href, destination.id)
-
-                clone.querySelector("article").addEventListener("click", () => {
-
-                    location.href = `hvorfordetalje.html?id=${destination.id}`;
-
-                })
-
-                liste.appendChild(clone);
+        function visTilbage() {
+            document.getElementById('go-back').addEventListener('click', () => {
+                history.back();
             });
-        }
-
-        function visLogo() {
-            console.log("billeder loades")
-            document.querySelector("#logo").src = logo.source_url;
-
         }
     </script>
 

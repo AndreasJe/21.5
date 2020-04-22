@@ -22,7 +22,7 @@
         </a>
 
         <div class="top_navbar">
-            jsjs
+
             <a href="index.html">
                 <img id="language" src="language" alt="">
             </a>
@@ -159,12 +159,13 @@
         <img class="splash" src="" alt="">
 
     </div>
-
     <main id="content">
+
         <button id="go-back">Go back!</button>
         <h1 class="overskrift"></h1>
+        <h2 class="underoverskrift"></h2>
         <p class="beskrivelse"></p>
-        <img class="splash">
+        <img class="billede">
     </main>
 
     <!-- JAVA -->
@@ -172,20 +173,22 @@
     <script>
         let urlParams = new URLSearchParams(window.location.search);
         let id = urlParams.get("id");
-        let destination;
+        let pageIndhold;
         document.addEventListener("DOMContentLoaded", start)
 
         async function start() {
             let jsonData = await fetch(`http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/hvorfor_21-5/${id}`);
-            destination = await jsonData.json();
+            pageIndhold = await jsonData.json();
             visDestination();
             visTilbage();
         }
 
         function visDestination() {
-            document.querySelector(".overskrift").textContent = destination.overskrift;
-            document.querySelector(".splash").src = destination.billede.guid;
-            document.querySelector(".beskrivelse").textContent = destination.beskrivelse;
+            document.querySelector(".overskrift").textContent = pageIndhold.overskrift;
+            document.querySelector(".underoverskrift").textContent = pageIndhold .1 - underoverskrift;
+            document.querySelector(".splash").src = pageIndhold.splash_billede.guid;
+            document.querySelector(".beskrivelse").textContent = pageIndhold .1 - tekst;
+
         }
 
         function visTilbage() {

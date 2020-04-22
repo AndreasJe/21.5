@@ -5,11 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Destinationer</title>
-    <link rel="stylesheet" href="css/permanent.css">
+    <link rel="stylesheet" href="css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!--
     <style>
         article {
             width: 90%;
@@ -42,7 +41,6 @@
             margin: auto;
         }
     </style>
--->
 </head>
 
 <body>
@@ -216,7 +214,7 @@
         // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
         //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
         // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
-        let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/hvorfor_21-5";
+        let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/destinationer";
         let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
 
         // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
@@ -249,7 +247,7 @@
 
                 clone.querySelector("article").addEventListener("click", () => {
 
-                    location.href = `hvorfordetalje.html?id=${destination.id}`;
+                    location.href = `destination.html?id=${destination.id}`;
 
                 })
 
