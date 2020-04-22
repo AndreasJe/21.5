@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rom</title>
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+
+<body>
+
+    <!-- CONTENT -->
+    <div class="splash_container">
+
+        <img class="splash" src="" alt="">
+
+
+    </div>
+
+    <main id="content">
+        <button id="go-back">Go back!</button>
+        <h1 class="navn"></h1>
+        <h2 class="tekst"></h2>
+        <p class="profession"></p>
+        <p class="email"></p>
+
+
+    </main>
+
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
+        let destination;
+        document.addEventListener("DOMContentLoaded", start)
+
+        async function start() {
+            let jsonData = await fetch(`http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/21-5_teamet/${id}`);
+            destination = await jsonData.json();
+            visDestination();
+            visTilbage();
+        }
+
+        function visDestination() {
+            document.querySelector(".navn").textContent = destination.navn;
+            document.querySelector(".tekst").textContent = destination.tekst;
+            document.querySelector(".profession").textContent = destination.profession;
+            document.querySelector(".email").textContent = destination.email;
+            document.querySelector("#splash").src = destination.billede.guid;
+
+
+        }
+
+
+        function visTilbage() {
+            document.getElementById('go-back').addEventListener('click', () => {
+                history.back();
+            });
+        }
+    </script>
+</body></html>
