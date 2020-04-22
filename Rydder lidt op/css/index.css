@@ -30,15 +30,17 @@ article img {
 article {
   height: 300px;
   width: 300px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
   background-color: white;
   padding: 30px;
   border: 1px black solid;
 }
 
 #liste {
+  display: block;
   height: 400px;
+  width: 100%;
   display: flex;
   margin-top: -25vh;
   margin-left: auto;
@@ -64,15 +66,14 @@ article {
 .topFooter {
   margin-left: auto;
   margin-right: auto;
-  width: 95%;
-  height: 100px;
+  width: 95vw;
+  height: 130px;
   border-top: 2px black solid;
-  padding: 50px;
 }
 
 .btmFooter {
-  width: 100%;
-  height: 200px;
+  width: 100vw;
+  height: 230px;
 }
 
 .someFooter {
@@ -82,8 +83,8 @@ article {
 }
 
 #instaBilleder {
-  width: 150px;
-  height: 100px;
+  width: 200px;
+  height: 150px;
   margin: auto;
 }
 
@@ -91,7 +92,7 @@ article {
   height: 40px;
   width: auto;
   margin: auto;
-  padding-top: 5px;
+  padding: 5px;
   z-index: 99999;
 }
 
@@ -99,7 +100,7 @@ article {
   height: 40px;
   width: auto;
   margin: auto;
-  padding-top: 5px;
+  padding: 5px;
   z-index: 99999;
 }
 
@@ -111,7 +112,7 @@ article {
   right: 90px;
   z-index: 99999;
   margin: 5px;
-  padding-top: 7px;
+  padding: 5px;
 }
 
 #user-login {
@@ -240,8 +241,11 @@ h3 {
 /* Content elementer */
 #content {
   width: 70vw;
-  margin: auto;
   margin-top: 80vh;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .splash {
@@ -254,12 +258,9 @@ h3 {
   z-index: -99;
 }
 
-splash_container {
-  overflow-x: hidden;
-}
-
 body,
 html {
+  overflow-x: hidden;
   width: 100vw;
   font-family: 'Raleway', sans-serif;
   margin: 0;
