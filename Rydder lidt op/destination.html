@@ -185,7 +185,7 @@
         document.addEventListener("DOMContentLoaded", start)
 
         async function start() {
-            let jsonData = await fetch(`http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/destination/${id}`);
+            let jsonData = await fetch(`http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/destinationer/${id}`);
             destination = await jsonData.json();
             visDestination();
             visTilbage();
@@ -213,9 +213,12 @@
                 history.back();
             });
         }
+
     </script>
 
 
     <!-- HTML SLUT -->
 
-</body></html>
+</body>
+
+</html>
