@@ -2,63 +2,62 @@
 <html lang="da">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forening</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
 
-    <div class="splash_container">
+  <div class="splash_container">
 
-        <img id="splash" src="" alt="">
+    <img class="splash" src="" alt="">
 
-    </div>
+  </div>
 
-    <main id="liste">
-        <article>
-            <h1 class="overskrift"></h1>
-            <p class="beskrivelse"></p>
-            <img class="billede">
-        </article>
-    </main>
+  <main id="content">
+    <article>
+      <h1 class="overskrift"></h1>
+      <p class="beskrivelse"></p>
+      <img class="billede">
+    </article>
+  </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", start)
-
-
-        let urlParams = new URLSearchParams(window.location.search);
-        let id = urlParams.get("id");
-        let forening;
-
-        let url1 = `http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/foreninger/${id}`;
+  <script>
+    document.addEventListener("DOMContentLoaded", start)
 
 
+    let urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get("id");
+    let forening;
 
-        let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
+    let url1 = `http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/foreninger/${id}`;
 
-        // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES. async -> venter på at alt er færdigt med at loade
-        async function start() {
-            let response1 = await fetch(url1);
-            let response2 = await fetch(url2);
-            destination = await response1.json();
 
-            console.log(url1, destination);
 
-            logo = await response2.json();
-            visForeningn();
-            visLogo();
-        }
+    let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
 
-        function visForening() {
-            document.querySelector(".overskrift").textContent = forening.overskrift;
-            document.querySelector(".billede").src = forening.billede.guid;
-            document.querySelector(".beskrivelse").textContent = destination.beskrivelse;
+    // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES. async -> venter på at alt er færdigt med at loade
+    async function start() {
+      let response1 = await fetch(url1);
+      let response2 = await fetch(url2);
+      forening = await response1.json();
 
-        }
+      console.log(url1, forening);
 
-    </script>
+      logo = await response2.json();
+      visForening();
+      visLogo();
+    }
+
+    function visForening() {
+      document.querySelector(".overskrift").textContent = forening.overskrift;
+      document.querySelector(".splash").src = forening.splash_billede.guid;
+      document.querySelector(".beskrivelse").textContent = destination.beskrivelse;
+
+    }
+  </script>
 </body>
 
 </html>
