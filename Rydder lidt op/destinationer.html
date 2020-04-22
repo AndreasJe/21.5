@@ -243,7 +243,7 @@
         clone.querySelector(".billede").src = destination.billede.guid;
         clone.querySelector(".beskrivelse").textContent = destination.beskrivelse;
 
-        console.log(location.href, destination.id)
+        console.log(destination.slug, destination.id)
 
         clone.querySelector("article").addEventListener("click", () => {
 
