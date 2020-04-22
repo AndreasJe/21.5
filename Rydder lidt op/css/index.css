@@ -29,7 +29,7 @@ article img {
 
 article {
   height: 300px;
-  width: 300px;
+  width: 500px;
   margin-left: 25px;
   margin-right: 25px;
   background-color: white;
@@ -38,13 +38,14 @@ article {
 }
 
 #liste {
+  position: absolute;
   display: block;
   height: 400px;
-  width: 100%;
   display: flex;
-  margin-top: -25vh;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: -700px;
+  left: 50%;
+  top: 61%;
+  width: 1400px;
 }
 
 .rowWrapper {
@@ -78,7 +79,7 @@ article {
 
 .someFooter {
   width: 100vw;
-  height: 50px;
+  height: 60px;
   background-color: #EAEDEA;
 }
 
@@ -88,11 +89,11 @@ article {
   margin: auto;
 }
 
-#face {
+#facebook {
   height: 40px;
   width: auto;
   margin: auto;
-  padding: 5px;
+  padding: 10px;
   z-index: 99999;
 }
 
@@ -100,7 +101,7 @@ article {
   height: 40px;
   width: auto;
   margin: auto;
-  padding: 5px;
+  padding: 10px;
   z-index: 99999;
 }
 
@@ -231,6 +232,7 @@ h1 {
 
 h2 {
   font-size: 1.5rem;
+  text-align: center;
 }
 
 h3 {
@@ -238,10 +240,29 @@ h3 {
   text-align: center;
 }
 
+h4 {
+  font-size: 1rem;
+}
+
+p {
+  text-align: left;
+  column-span: all;
+}
+
+.forsideTekst {
+  column-count: 2;
+  column-gap: 40px;
+  column-fill: balance;
+}
+
+#underoverskrift {
+  margin-top: 10vh;
+}
+
 /* Content elementer */
 #content {
   width: 70vw;
-  margin-top: 80vh;
+  margin-top: 86vh;
   display: block;
   text-align: center;
   margin-left: auto;
@@ -250,8 +271,8 @@ h3 {
 
 .splash {
   width: 100vw;
+  max-height: 70vh;
   max-width: 2500px;
-  height: 90vh;
   top: 0;
   left: 0;
   Position: absolute;

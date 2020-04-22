@@ -173,19 +173,20 @@
 
   <!-- MAIN CONTENT -->
 
-  <main id="content">
-    <div class="center">
-      <div class="rowWrapper">
-        <main id="liste">
+  <div class="rowWrapper">
+    <main id="liste">
 
-        </main>
-      </div>
-      <div class="Center">
-        <img id="pil">
-      </div>
+    </main>
+  </div>
+  <main id="content">
+    <div class="Center">
+      <img id="pil">
     </div>
+
     <h2 id="underoverskrift"></h2>
-    <p id="brødtekst"></p>
+    <div class="textCol2">
+      <p id="brødtekst"></p>
+    </div>
   </main>
 
   <!-- Footer CONTENT -->
@@ -227,7 +228,7 @@
 
     <div class="someFooter">
       <div class="center">
-        <img id="face">
+        <img id="facebook">
         <img id="insta">
       </div>
     </div>
@@ -263,7 +264,7 @@
       permanentIndhold = await response2.json();
       tiles = await response3.json();
       visForside();
-      visIndhold();
+      visPermanentIndhold();
       visTiles();
       visFeed()
     }
@@ -278,13 +279,13 @@
 
     }
 
-    function visIndhold() {
+    function visPermanentIndhold() {
       console.log("billeder loades")
       document.querySelector("#logo").src = permanentIndhold.billede1.guid;
       document.querySelector("#pil").src = permanentIndhold.billede2.guid;
       document.querySelector("#language").src = permanentIndhold.billede4.guid;
       document.querySelector("#user-login").src = permanentIndhold.billede3.guid;
-      document.querySelector("#face").src = permanentIndhold.billede5.guid;
+      document.querySelector("#facebook").src = permanentIndhold.billede5.guid;
       document.querySelector("#insta").src = permanentIndhold.billede6.guid;
     }
 
