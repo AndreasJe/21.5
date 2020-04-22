@@ -192,18 +192,18 @@
         }
 
         function visDestination() {
-            clone.querySelector(".overskrift").textContent = destination.overskrift;
-            clone.querySelector(".firstunderoverskrift").textContent = destination.firstoverskrift;
-            clone.querySelector(".andenunderoverskrift").textContent = destination.andenoverskrift;
-            clone.querySelector(".tredjeoverskrift").textContent = destination.tredjeoverskrift;
+            document.querySelector(".overskrift").textContent = destination.overskrift;
+            document.querySelector(".firstunderoverskrift").textContent = destination.firstoverskrift;
+            document.querySelector(".andenunderoverskrift").textContent = destination.andenoverskrift;
+            document.querySelector(".tredjeoverskrift").textContent = destination.tredjeoverskrift;
 
 
-            clone.querySelector(".billede").src = destination.billede.guid;
-            clone.querySelector("#splash").src = destination.splash_billede.guid;
+            document.querySelector(".billede").src = destination.billede.guid;
+            document.querySelector("#splash").src = destination.splash_billede.guid;
 
-            clone.querySelector(".firstbeskrivelse").textContent = destination.firstbeskrivelse;
-            clone.querySelector(".andenbeskrivelse").textContent = destination.andenbeskrivelse;
-            clone.querySelector(".tredjebeskrivelse").textContent = destination.tredjebeskrivelse;
+            document.querySelector(".firstbeskrivelse").textContent = destination.firstbeskrivelse;
+            document.querySelector(".andenbeskrivelse").textContent = destination.andenbeskrivelse;
+            document.querySelector(".tredjebeskrivelse").textContent = destination.tredjebeskrivelse;
         }
 
         }
