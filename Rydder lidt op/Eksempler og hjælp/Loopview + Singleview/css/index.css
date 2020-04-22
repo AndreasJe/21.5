@@ -1,8 +1,20 @@
-#splash {
-  height: 60vh;
+article img {
+  width: 100%;
+}
+
+#content {
+  width: 70vw;
+  margin: auto;
+  margin-top: 80vh;
+}
+
+.splash {
+  width: 100%;
+  max-width: 2500px;
+  height: 90vh;
+  top: 0;
   left: 0;
   Position: absolute;
-  width: 100vw;
   z-index: -99;
 }
 
