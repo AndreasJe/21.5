@@ -1,21 +1,126 @@
+.center {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#pil {
+  display: block;
+  width: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tile Loopview elementer */
+.titleBlock {
+  width: 300px;
+  height: 100px;
+  background-color: white;
+  border: 1px black solid;
+  position: absolute;
+  margin: auto;
+  z-index: 988;
+}
+
 article img {
   width: 100%;
 }
 
-#content {
-  width: 70vw;
-  margin: auto;
-  margin-top: 80vh;
+article {
+  height: 300px;
+  width: 300px;
+  margin-left: 50px;
+  margin-right: 50px;
+  background-color: white;
+  padding: 30px;
+  border: 1px black solid;
 }
 
-.splash {
+#liste {
+  height: 400px;
+  display: flex;
+  margin-top: -25vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rowWrapper {
+  display: inline-block;
+  flex-direction: row;
+}
+
+/* Footer elementer */
+.kontakt {
+  display: flex;
+  flex-direction: column;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.topFooter {
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  height: 100px;
+  border-top: 2px black solid;
+  padding: 50px;
+}
+
+.btmFooter {
   width: 100%;
-  max-width: 2500px;
-  height: 90vh;
-  top: 0;
-  left: 0;
-  Position: absolute;
-  z-index: -99;
+  height: 200px;
+}
+
+.someFooter {
+  width: 100vw;
+  height: 50px;
+  background-color: #EAEDEA;
+}
+
+#instaBilleder {
+  width: 150px;
+  height: 100px;
+  margin: auto;
+}
+
+#face {
+  height: 40px;
+  width: auto;
+  margin: auto;
+  padding-top: 5px;
+  z-index: 99999;
+}
+
+#insta {
+  height: 40px;
+  width: auto;
+  margin: auto;
+  padding-top: 5px;
+  z-index: 99999;
+}
+
+/* Header elementer */
+#language {
+  height: 30px;
+  width: auto;
+  position: absolute;
+  right: 90px;
+  z-index: 99999;
+  margin: 5px;
+  padding-top: 7px;
+}
+
+#user-login {
+  height: 40px;
+  width: auto;
+  position: absolute;
+  right: 20px;
+  z-index: 99999;
+  margin: 5px;
 }
 
 #logo {
@@ -35,13 +140,7 @@ article img {
   opacity: 20%;
 }
 
-body,
-html {
-  font-family: 'Raleway', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
+/* NAV elementer */
 nav {
   position: relative;
   display: flex;
@@ -122,4 +221,47 @@ nav {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+/* Tekst elementer */
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Content elementer */
+#content {
+  width: 70vw;
+  margin: auto;
+  margin-top: 80vh;
+}
+
+.splash {
+  width: 100vw;
+  max-width: 2500px;
+  height: 90vh;
+  top: 0;
+  left: 0;
+  Position: absolute;
+  z-index: -99;
+}
+
+splash_container {
+  overflow-x: hidden;
+}
+
+body,
+html {
+  width: 100vw;
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
 }

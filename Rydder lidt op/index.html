@@ -18,18 +18,18 @@
  Her er to navbars, som deler NAV'en op i to.-->
   <nav>
     <a class="forside-link" href="index.html">
-      <img id="logo" src="logo" alt="">
+      <img id="logo">
     </a>
 
     <div class="top_navbar">
 
       <a href="index.html">
-        <img id="language" src="language" alt="">
+        <img id="language">
       </a>
 
 
       <a href="index.html">
-        <img id="user-login" src="user-login" alt="">
+        <img id="user-login">
       </a>
 
     </div>
@@ -153,18 +153,87 @@
     </div>
   </nav>
 
-  <!-- CONTENT -->
+  <!-- SPLASH -->
   <div class="splash_container">
 
-    <img class="splash" src="" alt="">
+    <img class="splash">
 
   </div>
 
-  <main id="content">
+  <!-- SKABELON TIL TILES PÅ FORSIDE -->
 
-    <h1 id="overskrift"></h1>
+  <template class="tile">
+    <article>
+      <h2 class="kategori"></h2>
+      <p class="tekst"></p>
+      <p class="pris"></p>
+      <img class="figur">
+    </article>
+  </template>
+
+  <!-- MAIN CONTENT -->
+
+  <main id="content">
+    <div class="center">
+      <div class="rowWrapper">
+        <main id="liste">
+
+        </main>
+      </div>
+      <div class="Center">
+        <img id="pil">
+      </div>
+    </div>
+    <h2 id="underoverskrift"></h2>
     <p id="brødtekst"></p>
   </main>
+
+  <!-- Footer CONTENT -->
+
+  <footer>
+    <div class="topFooter">
+
+      <div class="rowWrapper">
+        <div class="links">
+
+          <a href="#">Nyheder</a>
+          <a href="#">Presse</a>
+          <a href="#">Cookie- og privatpolitik</a>
+          <a href="#">Job</a>
+          <a href="#">Om os</a>
+          <a href="#">Ofte stillede spørgsmål</a>
+        </div>
+        <div class="Kontakt">
+          <p class="lilleOverskrift"></p>
+          <p class="email"></p>
+          <p class="tlf"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="btmFooter">
+      <h3>Følg os på instagram</h3>
+      <div class="center">
+
+        <div class="rowWrapper">
+          <img id="instaBilleder" class="instaBillede1">
+          <img id="instaBilleder" class="instaBillede2">
+          <img id="instaBilleder" class="instaBillede3">
+          <img id="instaBilleder" class="instaBillede4">
+          <img id="instaBilleder" class="instaBillede5">
+        </div>
+      </div>
+    </div>
+
+    <div class="someFooter">
+      <div class="center">
+        <img id="face">
+        <img id="insta">
+      </div>
+    </div>
+
+
+  </footer>
 
 
   <!-- JAVA -->
@@ -175,37 +244,81 @@
 
     // LAV EN VARIABLE TIL AT BEGYNDE MED
     let forside
-    let logo
+    let permanentIndhold
+    let tiles
 
     // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
     //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages?per_page=100
     // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
     let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/188";
-    let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
+    let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/karrusel/781";
+    let url3 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/familie-kategori";
 
     // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
     async function start() {
       let response1 = await fetch(url1);
       let response2 = await fetch(url2);
+      let response3 = await fetch(url3);
       forside = await response1.json();
-      logo = await response2.json();
+      permanentIndhold = await response2.json();
+      tiles = await response3.json();
       visForside();
-      visLogo();
+      visIndhold();
+      visTiles();
+      visFeed()
     }
 
     // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
     // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
     function visForside() {
-      console.log("Page data loades")
+      console.log("Forside page-data loades")
       document.querySelector("#brødtekst").innerHTML = forside.content.rendered;
       document.querySelector(".splash").src = forside.better_featured_image.source_url;
 
     }
 
-    function visLogo() {
+    function visIndhold() {
       console.log("billeder loades")
-      document.querySelector("#logo").src = logo.source_url;
+      document.querySelector("#logo").src = permanentIndhold.billede1.guid;
+      document.querySelector("#pil").src = permanentIndhold.billede2.guid;
+      document.querySelector("#language").src = permanentIndhold.billede4.guid;
+      document.querySelector("#user-login").src = permanentIndhold.billede3.guid;
+      document.querySelector("#face").src = permanentIndhold.billede5.guid;
+      document.querySelector("#insta").src = permanentIndhold.billede6.guid;
+    }
+
+    function visTiles() {
+      console.log("JSON forberedes")
+
+      let liste = document.querySelector("#liste");
+      let template = document.querySelector("template");
+
+      tiles.forEach(tile => {
+        let clone = template.cloneNode(true).content;
+
+        // Samme som før - Henvis til de elementer som skal hentes.
+        clone.querySelector(".kategori").textContent = tile.familieoverskrift;
+        clone.querySelector(".tekst").textContent = tile.familietekst;
+        clone.querySelector(".pris").textContent = tile.familiepris;
+        clone.querySelector(".figur").src = tile.familiefigur.guid;
+
+        console.log("Kategori og slug hentes ned")
+        console.log(tile, tile.slug)
+
+        liste.appendChild(clone);
+      });
+      console.log("Husk nu at rette HTMLen!")
+    }
+
+
+    function visFeed() {
+      console.log("Instagram feed i Footer loades")
+      document.querySelector(".instaBillede1").src = permanentIndhold.billede7.guid;
+      document.querySelector(".instaBillede2").src = permanentIndhold.billede8.guid;
+      document.querySelector(".instaBillede3").src = permanentIndhold.billede9.guid;
+      document.querySelector(".instaBillede4").src = permanentIndhold.billede10.guid;
+      document.querySelector(".instaBillede5").src = permanentIndhold.billede11.guid;
 
     }
   </script>
