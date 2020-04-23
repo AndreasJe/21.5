@@ -1,4 +1,3 @@
-@@ -1,262 +0,0 @@
 <!DOCTYPE html>
 <html lang="da">
 
@@ -170,12 +169,16 @@
 
   <template>
     <article>
-      <img class="splash" src="" alt="">
       <h1 class="overskrift"></h1>
       <p class="beskrivelse"></p>
       <img class="billede">
     </article>
   </template>
+
+  <div class="breaker">
+  </div>
+  <div class="breaker">
+  </div>
 
   <footer>
     <div class="topFooter">
@@ -230,6 +233,7 @@
     // LAV EN VARIABLE TIL AT BEGYNDE MED
     let destinationer
     let splash
+    let permanentIndhold
 
     // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
     //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
@@ -243,11 +247,12 @@
       let response2 = await fetch(url2);
       let response3 = await fetch(url3);
       destinationer = await response1.json();
-      logo = await response2.json();
-      splash = await response3.json();
+      splash = await response2.json();
+      permanentIndhold = await response3.json();
+
+      visPermanentIndhold();
       visDestinationer();
       visSplash();
-      visPermanentIndhold();
     }
 
     // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
@@ -280,7 +285,7 @@
 
     function visSplash() {
       console.log("billeder loades")
-      document.querySelector("#logo").src = logo.source_url;
+      document.querySelector(".splash").src = splash.source_url;
 
     }
 
@@ -289,7 +294,6 @@
     function visPermanentIndhold() {
       console.log("Permanent indhold hentes")
       document.querySelector("#logo").src = permanentIndhold.billede1.guid;
-      document.querySelector("#pil").src = permanentIndhold.billede2.guid;
       document.querySelector("#language").src = permanentIndhold.billede4.guid;
       document.querySelector("#user-login").src = permanentIndhold.billede3.guid;
       document.querySelector("#facebook").src = permanentIndhold.billede5.guid;
