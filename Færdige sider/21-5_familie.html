@@ -233,7 +233,7 @@
     // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
     //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
     // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
-    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/det_siger_vores_21-5";
+    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/familier";
     let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
     let url3 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/karrusel/781";
 
@@ -254,7 +254,7 @@
     // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
     function visPersoner() {
-      console.log("Personer vises")
+      console.log(personer)
 
       let liste = document.querySelector("#liste");
       let template = document.querySelector("template");
@@ -263,7 +263,7 @@
         let clone = template.cloneNode(true).content;
 
         clone.querySelector(".overskrift").textContent = person.overskrift;
-        clone.querySelector(".billede").src = person.splash_billede.guid;
+        clone.querySelector(".billede").src = person.billede.guid;
         clone.querySelector(".beskrivelse").textContent = person.beskrivelse;
 
         console.log(location.href, person.id)

@@ -17,8 +17,6 @@ body {
 
 #pil {
   display: block;
-  width: 50px;
-  height: 15px;
   margin-left: auto;
   margin-right: auto;
   padding-top: 70px;
@@ -62,7 +60,7 @@ article img {
   position: absolute;
   height: 400px;
   display: flex;
-  margin-left: -690px;
+  margin-left: -600px;
   left: 50%;
   top: 54%;
 }
@@ -431,10 +429,6 @@ p {
   z-index: -99;
 }
 
-.splash_container {
-  position: relative;
-  Width: 100vw;
-}
 
 body,
 html {

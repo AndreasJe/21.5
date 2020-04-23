@@ -174,7 +174,7 @@
     let person;
 
     async function start() {
-      let jsonData = await fetch(`http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/teamet/${id}`);
+      let jsonData = await fetch(`http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/familier/${id}`);
       person = await jsonData.json();
 
       visTilbage();
@@ -186,7 +186,7 @@
       document.querySelector(".tekst").textContent = person.tekst;
       document.querySelector(".profession").textContent = person.profession;
       document.querySelector(".email").textContent = person.email;
-      // document.querySelector(".billede").src = person.billede.guid;
+      document.querySelector(".billede").src = person.billede.guid;
 
 
     }
