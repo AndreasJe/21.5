@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Forside</title>
   <link rel="stylesheet" href="css/index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;3000,800;0,900;1,600;1,700;1,800;1,900&family=Raleway:wght@200;300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
@@ -156,6 +156,9 @@
   <!-- SPLASH -->
   <div class="splash_container">
 
+    <div class="Center">
+      <h1 class="catchphrase">Hvilken familie er du?</h1>
+    </div>
     <img class="splash">
 
   </div>
@@ -164,9 +167,9 @@
 
   <template>
     <article class="tile">
-      <h2 class="kategori"></h2>
+      <h1 class="kategori"></h1>
       <p class="tekst"></p>
-      <p class="pris"></p>
+      <h3 class="pris"></h3>
       <img class="figur">
     </article>
   </template>
@@ -187,10 +190,38 @@
     <div class="textCol2">
       <p id="brødtekst"></p>
     </div>
+
+    <!-- Galleri -->
+    <div class="galleri">
+      <div class="ver">
+        <img id="img1" class="ver_img">
+      </div>
+      <div class="colWrapper">
+        <div class="hor">
+          <img id="img2" class="hor_img">
+        </div>
+        <div class="hor">
+          <img id="img3" class="hor_img">
+        </div>
+
+      </div>
+
+      <div class="ver">
+        <img id="img4" class="ver_img">
+      </div>
+    </div>
+
+
   </main>
 
-  <!-- Footer CONTENT -->
 
+
+
+
+  <!-- Footer CONTENT -->
+  <div class="breaker2">
+
+  </div>
   <footer>
     <div class="topFooter">
 
@@ -247,6 +278,7 @@
     let forside
     let permanentIndhold
     let tiles
+    let galleri
 
     // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
     //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages?per_page=100
@@ -254,39 +286,49 @@
     let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/188";
     let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/karrusel/781";
     let url3 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/familie-kategori";
+    let url4 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/galleri/398";
 
     // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
     async function start() {
       let response1 = await fetch(url1);
       let response2 = await fetch(url2);
       let response3 = await fetch(url3);
+      let response4 = await fetch(url4);
       forside = await response1.json();
       permanentIndhold = await response2.json();
       tiles = await response3.json();
+      galleri = await response4.json();
       visForside();
       visPermanentIndhold();
       visTiles();
-      visFeed()
+      visFeed();
+      visGalleri();
     }
 
     // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
     // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
     function visForside() {
-      console.log("Forside page-data loades")
+      console.log("Forside page-data hentes")
       document.querySelector("#brødtekst").innerHTML = forside.content.rendered;
       document.querySelector(".splash").src = forside.better_featured_image.source_url;
 
     }
 
     function visPermanentIndhold() {
-      console.log("billeder loades")
+      console.log("Permanent indhold hentes")
       document.querySelector("#logo").src = permanentIndhold.billede1.guid;
       document.querySelector("#pil").src = permanentIndhold.billede2.guid;
       document.querySelector("#language").src = permanentIndhold.billede4.guid;
       document.querySelector("#user-login").src = permanentIndhold.billede3.guid;
       document.querySelector("#facebook").src = permanentIndhold.billede5.guid;
       document.querySelector("#insta").src = permanentIndhold.billede6.guid;
+      console.log("Instragram feed hentes")
+      document.querySelector(".instaBillede1").src = permanentIndhold.billede7.guid;
+      document.querySelector(".instaBillede2").src = permanentIndhold.billede8.guid;
+      document.querySelector(".instaBillede3").src = permanentIndhold.billede9.guid;
+      document.querySelector(".instaBillede4").src = permanentIndhold.billede10.guid;
+      document.querySelector(".instaBillede5").src = permanentIndhold.billede11.guid;
     }
 
     function visTiles() {
@@ -313,13 +355,13 @@
     }
 
 
-    function visFeed() {
+
+    function visGalleri() {
       console.log("Instagram feed i Footer loades")
-      document.querySelector(".instaBillede1").src = permanentIndhold.billede7.guid;
-      document.querySelector(".instaBillede2").src = permanentIndhold.billede8.guid;
-      document.querySelector(".instaBillede3").src = permanentIndhold.billede9.guid;
-      document.querySelector(".instaBillede4").src = permanentIndhold.billede10.guid;
-      document.querySelector(".instaBillede5").src = permanentIndhold.billede11.guid;
+      document.querySelector("#img1").src = galleri.billede_1_vertikal_venstre.guid;
+      document.querySelector("#img4").src = galleri.billede_2_vertikal_hjre.guid;
+      document.querySelector("#img3").src = galleri.billede_1_horisontal_verst.guid;
+      document.querySelector("#img2").src = galleri.billede_2_horisontal_nederst.guid;
 
     }
   </script>

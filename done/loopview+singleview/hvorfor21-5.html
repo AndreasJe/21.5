@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Destinationer</title>
   <link rel="stylesheet" href="css/index.css">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Raleway:wght@200;300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!--
@@ -190,7 +190,7 @@
   <!-- CONTENT -->
   <div class="splash_container">
 
-    <img id="splash" src="" alt="">
+    <img class="splash" src="" alt="">
 
   </div>
 
@@ -311,12 +311,18 @@
 
 
     function visPermanentIndhold() {
-      console.log("billeder loades")
+      console.log("Permanent indhold hentes")
       document.querySelector("#logo").src = permanentIndhold.billede1.guid;
       document.querySelector("#language").src = permanentIndhold.billede4.guid;
       document.querySelector("#user-login").src = permanentIndhold.billede3.guid;
       document.querySelector("#facebook").src = permanentIndhold.billede5.guid;
       document.querySelector("#insta").src = permanentIndhold.billede6.guid;
+      console.log("Instragram feed hentes")
+      document.querySelector(".instaBillede1").src = permanentIndhold.billede7.guid;
+      document.querySelector(".instaBillede2").src = permanentIndhold.billede8.guid;
+      document.querySelector(".instaBillede3").src = permanentIndhold.billede9.guid;
+      document.querySelector(".instaBillede4").src = permanentIndhold.billede10.guid;
+      document.querySelector(".instaBillede5").src = permanentIndhold.billede11.guid;
     }
   </script>
 

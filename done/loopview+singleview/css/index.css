@@ -7,9 +7,11 @@
 
 #pil {
   display: block;
-  width: 30px;
+  width: 50px;
+  height: 15px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 70px;
 }
 
 /* Tile Loopview elementer */
@@ -27,12 +29,21 @@ article img {
   width: 100%;
 }
 
+.loopBG {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+
 .tile {
-  height: 300px;
-  width: 400px;
+  height: 330px;
+  width: 350px;
   margin-left: 25px;
   margin-right: 25px;
-  background-color: white;
+  background-color: #EAEDEA;
   padding: 30px;
   border: 1px black solid;
 }
@@ -41,12 +52,14 @@ article img {
   position: absolute;
   height: 400px;
   display: flex;
-  margin-left: -760px;
+  margin-left: -690px;
   left: 50%;
-  top: 60%;
+  top: 54%;
 }
 
 article {
+  overflow: hidden;
+  position: relative;
   height: 200px;
   width: 400px;
   margin: 25px;
@@ -90,9 +103,25 @@ article {
   border: 1px black solid;
 }
 
+.galleri {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
 .rowWrapper {
   display: inline-block;
   flex-direction: row;
+  margin: 0;
+  padding: 0;
+}
+
+.colWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
 /* Footer elementer */
@@ -116,7 +145,7 @@ article {
 
 .btmFooter {
   width: 100vw;
-  height: 230px;
+  height: 300px;
 }
 
 .someFooter {
@@ -126,9 +155,9 @@ article {
 }
 
 #instaBilleder {
-  width: 200px;
-  height: 150px;
-  margin: auto;
+  width: 300px;
+  height: 200px;
+  padding: 30px;
 }
 
 #facebook {
@@ -269,36 +298,69 @@ nav {
 
 /* Tekst elementer */
 h1 {
-  font-size: 1.5rem;
+  font-size: 2.2rem;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  margin: 0;
 }
 
 h2 {
+  font-family: 'Raleway', sans-serif;
   font-size: 1.5rem;
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 25px;
 }
 
 h3 {
-  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
   text-align: center;
 }
 
 h4 {
+  font-family: 'Raleway', sans-serif;
   font-size: 1rem;
 }
 
 p {
+  font-family: 'Montserrat', sans-serif;
   text-align: left;
+  font-size: 1rem;
   column-span: all;
+  padding: 5px;
 }
 
-.forsideTekst {
+.catchphrase {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  margin-left: -225px;
+  font-size: 3rem;
+}
+
+.tekstblok1 {}
+
+.tekstblok2 {
   column-count: 2;
   column-gap: 40px;
   column-fill: balance;
 }
 
 #underoverskrift {
+  font-family: 'Raleway', sans-serif;
   margin-top: 10vh;
+}
+
+.lwOverskrift {
+  font-family: 'Raleway', sans-serif;
+  z-index: 99;
+  position: absolute;
+  color: white;
+  font-weight: 900;
+  font-size: 2.2rem;
+  bottom: 0;
+  left: 5%;
 }
 
 /* Content elementer */
@@ -306,23 +368,62 @@ p {
   height: 1000px;
 }
 
+.breaker2 {
+  height: 200px;
+}
+
 #content {
   width: 70vw;
-  margin-top: 86vh;
+  margin-top: 80vh;
   display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
 
+.galleri {
+  margin-left: 25px;
+  margin-right: auto;
+}
+
+#img1 {
+  height: 605px;
+  width: 400px;
+}
+
+#img2 {
+  height: 300px;
+  width: 450px;
+  padding-top: 10px;
+}
+
+#img3 {
+  height: 300px;
+  width: 450px;
+}
+
+#img4 {
+  height: 605px;
+  width: 400px;
+}
+
+.galleri .ver_img {
+  padding: 10px;
+}
+
 .splash {
   width: 100vw;
-  max-height: 70vh;
-  max-width: 2500px;
+  max-height: 90vh;
+  max-width: 2000px;
   top: 0;
   left: 0;
   Position: absolute;
   z-index: -99;
+}
+
+splash_container {
+  position: relative;
+  Width: 100vw;
 }
 
 body,
