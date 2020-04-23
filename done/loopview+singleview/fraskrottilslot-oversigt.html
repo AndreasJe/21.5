@@ -155,7 +155,7 @@
   <!-- CONTENT -->
   <div class="splash_container">
 
-    <img id="splash" src="" alt="">
+    <img class="splash" src="" alt="">
 
   </div>
 
@@ -168,6 +168,7 @@
       <img class="billede">
     </article>
   </template>
+
 
   <div class="breaker">
   </div>
@@ -215,9 +216,10 @@
         <img id="insta">
       </div>
     </div>
-
-
   </footer>
+
+
+
   <!-- JAVA -->
 
   <script>
@@ -225,8 +227,8 @@
 
     // Samme som før
     let pages
+    let splash
     let permanentIndhold
-
 
 
     // Loopview'et henter title og splash billede fra de pages, vi har lavet.1. Lav en kategori i WordpressPages -> Categories -> Add New
@@ -245,18 +247,22 @@
     // DONE. Det var det.
 
 
-    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/skrot-lande";
+    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages?categories=4";
+    let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/1654";
     let url3 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/karrusel/781";
+
 
 
     // Samme som før
     async function start() {
       let response1 = await fetch(url1);
+      let response2 = await fetch(url2);
       let response3 = await fetch(url3);
       pages = await response1.json();
+      splash = await response2.json();
       permanentIndhold = await response3.json();
       visPages();
-      visPermanentIndhold();
+      visSplash();
     }
 
 
@@ -272,14 +278,14 @@
 
         // Samme som før - Henvis til de elementer som skal hentes.
         clone.querySelector(".overskrift").textContent = page.title.rendered;
-        clone.querySelector(".billede").src = page.splash.guid;
+        clone.querySelector(".billede").src = page.better_featured_image.source_url;
 
         console.log("Kategori og slug hentes ned")
         console.log(page, page.slug)
 
         clone.querySelector("article").addEventListener("click", () => {
 
-          location.href = `fra-skrot-til-slot-i-hele-verden.html?id=${destination.id}`;
+          location.href = `${page.slug}.html`;
 
         })
 
@@ -292,19 +298,22 @@
 
     // Permanent indhold hentes i Footer funktionenen
 
+    function visSplash() {
+      console.log("billeder loades")
+      document.querySelector(".splash").src = splash.source_url;
+
+    }
 
     function visPermanentIndhold() {
       console.log("billeder loades")
       document.querySelector("#logo").src = permanentIndhold.billede1.guid;
+      document.querySelector("#pil").src = permanentIndhold.billede2.guid;
       document.querySelector("#language").src = permanentIndhold.billede4.guid;
       document.querySelector("#user-login").src = permanentIndhold.billede3.guid;
       document.querySelector("#facebook").src = permanentIndhold.billede5.guid;
       document.querySelector("#insta").src = permanentIndhold.billede6.guid;
     }
   </script>
-
-
-  <!-- HTML SLUT -->
 
 </body>
 

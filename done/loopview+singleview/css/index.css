@@ -27,9 +27,9 @@ article img {
   width: 100%;
 }
 
-article {
+.tile {
   height: 300px;
-  width: 500px;
+  width: 400px;
   margin-left: 25px;
   margin-right: 25px;
   background-color: white;
@@ -37,15 +37,57 @@ article {
   border: 1px black solid;
 }
 
-#liste {
+#tileContainer {
   position: absolute;
-  display: block;
   height: 400px;
   display: flex;
-  margin-left: -700px;
+  margin-left: -760px;
+  left: 50%;
+  top: 60%;
+}
+
+article {
+  height: 200px;
+  width: 400px;
+  margin: 25px;
+  background-color: white;
+  padding: 30px;
+  border: 1px black solid;
+}
+
+/* TEAM LOOPVIEW */
+#person {
+  height: 400px;
+  width: 400px;
+  margin: 25px;
+  background-color: white;
+  padding: 30px;
+  border: 1px black solid;
+}
+
+#liste {
+  padding: 50px;
+  background-color: white;
+  border: 2px black solid;
+  position: absolute;
+  height: auto;
+  width: 1600px;
+  display: flex;
+  margin-left: -850px;
+  flex-basis: 400px;
   left: 50%;
   top: 61%;
-  width: 1400px;
+  flex-wrap: wrap;
+}
+
+/* Skrot oversigt LOOPVIEW */
+#skrotOversigt {
+  height: 400px;
+  width: 400px;
+  margin: 25px;
+  background-color: white;
+  padding: 30px;
+  border: 1px black solid;
 }
 
 .rowWrapper {
@@ -260,6 +302,10 @@ p {
 }
 
 /* Content elementer */
+.breaker {
+  height: 1000px;
+}
+
 #content {
   width: 70vw;
   margin-top: 86vh;
@@ -281,6 +327,7 @@ p {
 
 body,
 html {
+  scroll-behavior: smooth;
   overflow-x: hidden;
   width: 100vw;
   font-family: 'Raleway', sans-serif;
