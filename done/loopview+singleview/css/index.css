@@ -440,7 +440,7 @@ splash_container {
 
 body,
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     overflow-x: hidden;
     width: 100vw;
     font-family: 'Raleway', sans-serif;
