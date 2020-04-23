@@ -4,17 +4,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>21-5 teamet</title>
+  <title>Forside</title>
   <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;3000,800;0,900;1,600;1,700;1,800;1,900&family=Raleway:wght@200;300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&family=Raleway:wght@200;300&display=swap" rel="stylesheet">
+
 
 </head>
 
+
 <body>
 
-  <!-- NAV med udgangspunkt i denne fremgangsmåde: https://www.w3schools.com/howto/howto_css_dropdown.asp
- Her er to navbars, som deler NAV'en op i to.-->
+  <!-- NAV -->
   <nav>
     <a class="forside-link" href="index.html">
       <img id="logo">
@@ -152,29 +153,100 @@
     </div>
   </nav>
 
-  <!-- CONTENT -->
+  <!-- SPLASH BILLEDE -->
   <div class="splash_container">
-
+    <!-- GENEREL KLASSE TIL CENTERERING AF CONTENT -->
+    <div class="Center">
+      <!-- TEKST OVER SPLASH - EKS MOTTO -->
+      <h1 class="catchphrase">Hvilken familie er du?</h1>
+    </div>
+    <!-- SPLASH BILLEDE INDSÆTTES HER -->
     <img class="splash">
 
   </div>
 
-  <main id="liste"></main>
+  <!-- SKABELON TIL LOOPVIEW PÅ FORSIDE -->
 
+
+  <!-- LOOPVIEW TEMPLATE -->
   <template>
-    <article id="person">
-      <h1 class="overskrift"></h1>
-      <p class="beskrivelse"></p>
-      <img class="billede">
+    <!-- LOOPVIEW CONTENT - TILE KLASSEN HENVISER TIL FORSIDENS LOOPVIEW -->
+    <article class="tile">
+      <!-- LOOPVIEW KATEGORI -->
+      <h1 class="kategori"></h1>
+      <!-- LOOPVIEW TEKST -->
+      <p class="tekst"></p>
+      <!-- LOOPVIEW PRIS -->
+      <h3 class="pris"></h3>
+      <!-- LOOPVIEW BILLEDE -->
+      <img class="figur">
     </article>
   </template>
 
+  <!-- MAIN CONTENT -->
+
+  <!-- GENEREL KLASSE TIL FLEX DIRECTION:ROW AF CONTENT -->
+  <div class="rowWrapper">
+    <!-- HER VISES VORES LOOPVIEW -FORSIDE -->
+    <main id="tileContainer">
+
+    </main>
+  </div>
+  <main id="content">
+    <!-- GENEREL KLASSE TIL CENTERERING AF CONTENT -->
+    <div class="Center">
+      <!-- SCROLL INDIKATOR PIL -->
+      <img id="pil">
+    </div>
+    <!-- CONTENT UNDEROVERSKRIFT -->
+    <h2 id="underoverskrift"></h2>
+    <!-- GENEREL KLASSE TIL TEXT KOLLONER - INDSÆTTET I WP SOM ADDITIONAL CLASSES -->
+    <div class="textCol2">
+      <!-- CONTENT BRØDTEKST -->
+      <p id="brødtekst"></p>
+    </div>
+
+
+    <!-- GALLERI -->
+    <div class="galleri">
+
+      <!-- GENEREL VERTIKAL KLASSE TIL GALLERI'ER -->
+      <div class="ver">
+        <!-- GALLERI BILLEDE -->
+        <img id="img1" class="ver_img">
+      </div>
+
+      <!-- GENEREL KLASSE TIL FLEX DIRECTION:COLLUMN AF CONTENT -->
+      <div class="colWrapper">
+        <!-- HORIZONTAL KLASSE TIL GALLERI'ER -->
+        <div class="hor">
+          <!-- GALLERI BILLEDE -->
+          <img id="img2" class="hor_img">
+        </div>
+
+        <!-- GENEREL HORIZONTAL KLASSE TIL GALLERI'ER -->
+        <div class="hor">
+          <!-- GALLERI BILLEDE -->
+          <img id="img3" class="hor_img">
+        </div>
+      </div>
+      <!-- GENEREL VERTIKAL KLASSE TIL GALLERI'ER -->
+      <div class="ver">
+        <!-- GALLERI BILLEDE -->
+        <img id="img4" class="ver_img">
+      </div>
+    </div>
+
+
+  </main>
+
+
+
+
+
   <!-- Footer CONTENT -->
-  <div class="breaker">
-  </div>
-  <div class="breaker">
-  </div>
-  <div class="breaker">
+  <div class="breaker2">
+
   </div>
   <footer>
     <div class="topFooter">
@@ -221,73 +293,55 @@
 
   </footer>
 
+
   <!-- JAVA -->
 
   <script>
+    // Så snart DOM er loaded, vil Scriptet starte vores start funktion.
     document.addEventListener("DOMContentLoaded", start)
 
-
-    // LAV EN VARIABLE TIL AT BEGYNDE MED
-    let personer
+    // Variable til JSON Sti
+    let forside
     let permanentIndhold
-    let logo
+    let tiles
+    let galleri
 
-    // SKRIV JSON URL IND HER OG FORBIND MED VARIABEL
-    //Find ID her: http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/posts?per_page=100
-    // CTRL+F/Søg i vieweren efter pagens slug, så finder du den hurtigt
-    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/det_siger_vores_21-5";
-    let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/media/220";
-    let url3 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/karrusel/781";
+    // JSON-DATA UR
+    let url1 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/pages/188";
+    let url2 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/karrusel/781";
+    let url3 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/familie-kategori";
+    let url4 = "http://slodberg.dk/kea/2sm/09-tema/21-5-kode/wordpress/wp-json/wp/v2/galleri/398";
 
-    // HER TILSKRIVES OVENSTÅENDE VARIIABLE OG DENS FUNKTION SKAL STARTES
+    // Ovenstående variabel og URL forbindes her, så vi kan bruge dem i JSON stien i funktionen
     async function start() {
       let response1 = await fetch(url1);
       let response2 = await fetch(url2);
       let response3 = await fetch(url3);
-      personer = await response1.json();
-      logo = await response2.json();
-      permanentIndhold = await response3.json();
-      visPersoner();
-      visLogo();
+      let response4 = await fetch(url4);
+      forside = await response1.json();
+      permanentIndhold = await response2.json();
+      tiles = await response3.json();
+      galleri = await response4.json();
+      visForside();
+      visPermanentIndhold();
+      visTiles();
+      visGalleri();
     }
 
-    // FUNKTION HENTER DATA - HENVISER TIL ID, CLASS ELLER TAG I HTML'EN - TAG HØJDE FOR TEXTCONTENT, INNERHTML, SRC OSV.
-    // HENT DATA VIA DEN TIDLIGERE VARIABEL
 
-    function visPersoner() {
-      console.log("Personer vises")
-
-      let liste = document.querySelector("#liste");
-      let template = document.querySelector("template");
-
-      personer.forEach(person => {
-        let clone = template.cloneNode(true).content;
-
-        clone.querySelector(".overskrift").textContent = person.overskrift;
-        clone.querySelector(".billede").src = person.splash_billede.guid;
-        clone.querySelector(".beskrivelse").textContent = person.beskrivelse;
-
-        console.log(location.href, person.id)
-
-        clone.querySelector("article").addEventListener("click", () => {
-
-          location.href = `21-5_detalje.html?id=${person.id}`;
-
-        })
-
-        liste.appendChild(clone);
-      });
-    }
-
-    function visLogo() {
-      console.log("billeder loades")
-      document.querySelector("#logo").src = logo.source_url;
+    // Her hentes indhold -fra pagen "Forside"
+    function visForside() {
+      console.log("Forside page-data hentes")
+      document.querySelector("#brødtekst").innerHTML = forside.content.rendered;
+      document.querySelector(".splash").src = forside.better_featured_image.source_url;
 
     }
 
+    // Her hentes indhold -fra karussel "Det permanente indhold"
     function visPermanentIndhold() {
       console.log("Permanent indhold hentes")
       document.querySelector("#logo").src = permanentIndhold.billede1.guid;
+      document.querySelector("#pil").src = permanentIndhold.billede2.guid;
       document.querySelector("#language").src = permanentIndhold.billede4.guid;
       document.querySelector("#user-login").src = permanentIndhold.billede3.guid;
       document.querySelector("#facebook").src = permanentIndhold.billede5.guid;
@@ -298,6 +352,40 @@
       document.querySelector(".instaBillede3").src = permanentIndhold.billede9.guid;
       document.querySelector(".instaBillede4").src = permanentIndhold.billede10.guid;
       document.querySelector(".instaBillede5").src = permanentIndhold.billede11.guid;
+    }
+
+    // Her hentes indhold til Loopview -fra familie-kateogri -
+    function visTiles() {
+      console.log("JSON forberedes")
+
+      let liste = document.querySelector("#tileContainer");
+      let template = document.querySelector("template");
+
+      tiles.forEach(tile => {
+        let clone = template.cloneNode(true).content;
+
+        // Samme som før - Henvis til de elementer som skal hentes.
+        clone.querySelector(".kategori").textContent = tile.familieoverskrift;
+        clone.querySelector(".tekst").textContent = tile.familietekst;
+        clone.querySelector(".pris").textContent = tile.familiepris;
+        clone.querySelector(".figur").src = tile.familiefigur.guid;
+
+        console.log("Kategori og slug hentes ned")
+        console.log(tile, tile.slug)
+
+        liste.appendChild(clone);
+      });
+      console.log("Husk nu at rette HTMLen!")
+    }
+
+    // Her hentes indhold til Galleri -fra Galleri - Forside
+    function visGalleri() {
+      console.log("Instagram feed i Footer loades")
+      document.querySelector("#img1").src = galleri.billede_1_vertikal_venstre.guid;
+      document.querySelector("#img4").src = galleri.billede_2_vertikal_hjre.guid;
+      document.querySelector("#img3").src = galleri.billede_1_horisontal_verst.guid;
+      document.querySelector("#img2").src = galleri.billede_2_horisontal_nederst.guid;
+
     }
   </script>
 
