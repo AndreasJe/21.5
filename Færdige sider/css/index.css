@@ -112,16 +112,18 @@ article {
 }
 
 .galleri {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 0;
+  left: 50%;
+  bottom: 24%;
+  margin-top: 15vh;
+  margin-left: -625px;
 }
 
 .rowWrapper {
-  display: inline-block;
+  width: 100%;
+  display: flex;
   flex-direction: row;
-  margin: 0;
   padding: 0;
 }
 
@@ -389,11 +391,6 @@ p {
   margin-right: auto;
 }
 
-.galleri {
-  margin-left: 25px;
-  margin-right: auto;
-}
-
 #img1 {
   height: 605px;
   width: 400px;
@@ -428,7 +425,6 @@ p {
   Position: absolute;
   z-index: -99;
 }
-
 
 body,
 html {
